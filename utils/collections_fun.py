@@ -57,6 +57,9 @@ def show_all(_, book: AddressBook):
 
 @input_error
 def add_birthday(args, book: AddressBook):
+    if len(args) < 2:
+        return "Please use format: add-birthday <name> <DD.MM.YYYY>"
+
     name, birthday_date = args
     record = book.find(name)
     if not record:

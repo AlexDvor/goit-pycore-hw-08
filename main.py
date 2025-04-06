@@ -1,10 +1,10 @@
-from models.address_book import AddressBook
 from utils import collections_fun as fn
 from utils.parse_input import parse_input
+from storage.storage import load_data, save_data
 
 
 def main():
-    book = AddressBook()
+    book = load_data()
     print("Welcome to the assistant bot!")
     while True:
         user_input = input("Enter a command: ")
@@ -16,6 +16,7 @@ def main():
         command, *args = parse_input(user_input)
 
         if command in ["close", "exit"]:
+            save_data(book)
             print("Good bye!")
             break
         elif command == "hello":

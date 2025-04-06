@@ -14,8 +14,8 @@ def input_error(func):
             elif "Invalid date format. Use DD.MM.YYYY" in str(e):
                 return "Invalid date format. Use DD.MM.YYYY"
             else:
-                return "Give me name and phone please."
+                return "Invalid input. Please check your data."
         except IndexError:
-            return "Invalid input! Please provide correct data."
+            return "Missing arguments. Please provide all required data."
 
     return inner
